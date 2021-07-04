@@ -24,7 +24,17 @@ helm install Helm-release stable/prometheus-operator
 
 Verify as below,
 
-kubectl --namespace default get pods -l "release=Helm-release"
+kubectl get pods/svc
+
+#Verify with deploying a pod and enabling monitoring from Prometheus
+
+helm install traefik stable/traefik --set metrics.prometheus.enabled=true
+
+Once running, Monitor from Dashboard or curling to container IP or service IP from login into worker node where trafik pod is running
+
+master $ curl containter-ip:9100/metrics
+
+worker $ curl service-ip:9100/metrics
 
 # Install Prometheus using kubectl in k8s cluster
 Integrate Prometheus monitoring in Kubernetes cluster
