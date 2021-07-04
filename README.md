@@ -26,16 +26,25 @@ URL: http://localhost:9090
 ![image](https://user-images.githubusercontent.com/35297246/124373840-77142e00-dcb3-11eb-886a-c5274427d381.png)
 
 1. The Prometheus servers need as much target auto discovery as possible. There are several options to achieve this:
-  Prometheus Kubernetes SD (service discovery)
-  Prometheus operator and its Custom Resource Definitions
-  Consul SD
-  File SD
+
+Prometheus Kubernetes SD (service discovery)
+
+Prometheus operator and its Custom Resource Definitions
+
+Consul SD
+
+File SD
 
 2. Apart from application metrics, we want Prometheus to collect metrics related to the Kubernetes services, nodes, and orchestration status.
-  (a) Node exporter for the classical host-related metrics: cpu, mem, network, etc.
-  (b) Kube-state-metrics for orchestration and cluster level metrics: deployments, pod metrics, resource reservation, etc.
-  (c) Kubernetes control plane metrics: kubelet, etcd, dns, scheduler, etc.
+
+(a) Node exporter for the classical host-related metrics: cpu, mem, network, etc.
+
+(b) Kube-state-metrics for orchestration and cluster level metrics: deployments, pod metrics, resource reservation, etc.
+
+(c) Kubernetes control plane metrics: kubelet, etcd, dns, scheduler, etc.
 
 3. Prometheus can configure rules to trigger alerts using PromQL. alertmanager will be in charge of managing alert notification, grouping, inhibition, etc.
+
 4. The AlertManager component configures the receivers and gateways to deliver alert notifications.
+
 5. Grafana can pull metrics from any number of Prometheus servers and display panels and Dashboards.
