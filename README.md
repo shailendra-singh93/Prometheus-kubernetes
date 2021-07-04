@@ -26,6 +26,10 @@ Verify as below,
 
 kubectl get pods/svc
 
+Once installed Prometheus service access from Desktop GUI of Master Node by port-forwarding it to localhost as below,
+
+kubectl port-forward svc/prometheus-operated 9090
+
 #Verify with deploying a pod and enabling monitoring from Prometheus
 
 helm install traefik stable/traefik --set metrics.prometheus.enabled=true
