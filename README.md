@@ -1,4 +1,32 @@
-# Prometheus-kubernetes
+# Install Prometheus using HELM 3 in K8s cluster 
+
+Get Helm 3 in k8s cluster as below,
+
+wget https://get.helm.sh/helm-v3.6.2-linux-amd64.tar.gz
+
+tar -xvzf helm-v3.6.2-linux-amd64.tar.gz
+
+mv linux-amd64/helm /usr/local/bin/helm
+
+Add helm repo for prometheus using below command:
+
+helm repo add stable https://charts.helm.sh/stable
+
+helm repo add prometheus-community https://prometheus-community.github.io/helm-charts
+
+helm repo add kube-state-metrics https://kubernetes.github.io/kube-state-metrics
+
+helm repo update
+
+Now install Prometheus from Helm chart as below,
+
+helm install Helm-release stable/prometheus-operator
+
+Verify as below,
+
+kubectl --namespace default get pods -l "release=Helm-release"
+
+# Install Prometheus using kubectl in k8s cluster
 Integrate Prometheus monitoring in Kubernetes cluster
 
 Clone this repo in your working area and deploy these files using kubctl in your kubernetes cluster as below,
